@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Input invoices may contain account, billing, or operational information.
+data/input/*
+!data/input/.gitkeep
+*.pdf
+
+# Generated outputs
+output/*
+!output/.gitkeep
+*.xlsx
+*.csv
+
+# Local logs / temp files
+*.log
+*.tmp
+~$*
