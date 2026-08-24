@@ -16,16 +16,27 @@ env/
 .DS_Store
 Thumbs.db
 
-# Input invoices may contain account, billing, or operational information.
-data/input/*
-!data/input/.gitkeep
+# Invoice inputs may contain account, billing, customer, or operational information.
 *.pdf
 
+data/input/*
+!data/input/.gitkeep
+
+# Keep empty year-folder placeholders, ignore files placed inside them.
+data/gas/input/*/*
+!data/gas/input/*/.gitkeep
+
 # Generated outputs
-output/*
-!output/.gitkeep
 *.xlsx
 *.csv
+output/*
+!output/.gitkeep
+!output/gas/
+output/gas/*
+!output/gas/.gitkeep
+
+# Debug artifacts created when a PDF cannot be parsed
+DEBUG_*_text.txt
 
 # Local logs / temp files
 *.log

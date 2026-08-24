@@ -1,47 +1,40 @@
-# Publish this project to GitHub
+# Publish or update this project on GitHub
 
-## Option A — GitHub website + Git
+Repository:
 
-1. Create a new empty repository on GitHub named `energy-invoice-extractor`.
-2. Do **not** add a README, `.gitignore`, or license on GitHub because they are already included here.
-3. Open PowerShell in this project folder and run:
+```text
+https://github.com/NiknazNgh/energy-invoice-extractor
+```
+
+## Existing repository: add the gas workflow
+
+After copying the updated project files into your local repository, run:
 
 ```powershell
-git init
+git status
 git add .
-git commit -m "Initial release: energy invoice extractor"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/energy-invoice-extractor.git
-git push -u origin main
+git commit -m "Add natural gas invoice extraction workflow"
+git push origin main
 ```
 
-## Option B — GitHub CLI
-
-If GitHub CLI (`gh`) is installed and authenticated:
-
-```powershell
-git init
-git add .
-git commit -m "Initial release: energy invoice extractor"
-git branch -M main
-gh repo create energy-invoice-extractor --public --source=. --remote=origin --push
-```
-
-Use `--private` instead of `--public` if the repository should not be public.
-
-## Before publishing
-
-Run:
-
-```powershell
-pytest
-```
-
-Then verify that no real invoices, Excel/CSV outputs, account data, or private network paths are staged:
+Before committing, confirm that no invoice PDFs, Excel/CSV outputs, customer data, or private network paths are staged:
 
 ```powershell
 git status
 git diff --cached
 ```
 
-The provided `.gitignore` is designed to exclude PDFs, invoice inputs, and generated spreadsheet outputs.
+## Fresh clone
+
+```powershell
+git clone https://github.com/NiknazNgh/energy-invoice-extractor.git
+cd energy-invoice-extractor
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements-dev.txt
+pytest
+```
+
+## Optional repository rename
+
+Because the repository now handles both electricity and natural gas, a broader name such as `utility-invoice-extractor` would be reasonable later. Renaming is optional; keeping `energy-invoice-extractor` is also accurate.
